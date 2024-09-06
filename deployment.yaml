@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faq-app-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: faq-app
+  template:
+    metadata:
+      labels:
+        app: faq-app
+    spec:
+      containers:
+      - name: faq-app
+        image: yash5090/faq-app:latest
+        ports:
+        - containerPort: 5000
